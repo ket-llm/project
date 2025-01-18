@@ -5,6 +5,11 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: { unoptimized: true },
+  webpack: (config, { isServer }) => {
+    // Add watchpack resolution
+    config.resolve.alias.watchpack = require.resolve('watchpack');
+    return config;
+  },
 };
 
 module.exports = nextConfig;
